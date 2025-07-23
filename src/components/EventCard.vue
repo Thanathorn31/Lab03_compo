@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { ref } from 'vue';
 import type { Event } from '@/types';
  defineProps<{
   event: Event;
@@ -18,19 +17,25 @@ import type { Event } from '@/types';
 </script>
 
 <template>
-  
-  <div class="event-class">
-    <div class="event-card">
+  <RouterLink class="event-link" :to="{ name: 'event-detail-view', params: { id: event.id } }">
+    <div class="container">
+  <div class="event-card">
       <h2>{{ event.title }}</h2>
       <span>@{{ event.time }} on {{ event.date }}</span> <br>
       <span> Category :{{ event.category }} </span><br>
       <span> Organizer :{{ event.organizer }} </span>
     </div>
-  </div>
-
+    </div>
+</RouterLink>
 </template>
 
 <style scoped>
+
+.container{
+  display: flex;
+  justify-content: center;  
+  align-items: center;       
+}
 .event-card {
   background-color: #ffffff;
   border: 1px solid #e0e0e0;
@@ -43,26 +48,15 @@ import type { Event } from '@/types';
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   font-family: 'Segoe UI', sans-serif;
 }
-
 .event-card:hover {
-  transform: scale(1.02);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12); 
-  border-color: #94a3b8; 
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
 }
 
-
-.event-card h3 {
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-  font-size: 1.2rem;
-  color: #111827;
+.event-link {
+  text-decoration: none;
+  color: #2c3e50;
 }
 
-.event-card p {
-  margin: 0;
-  font-size: 0.95rem;
-  color: #4b5563;
-  line-height: 1.5;
-}
 
 </style>

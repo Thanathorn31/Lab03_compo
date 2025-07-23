@@ -66,71 +66,16 @@ onMounted(() =>{
 </template>
 
 
-  <!-- /* .events-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    align-items: center;
-  }
-  .event {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    width: 320px;
-  } */ -->
+
 
    <style scoped>
 
-.event-class {
+/* .evens{
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-/* .events-wrapper {
-  background-color: #ffffff;
-  border: 1px solid #e0e0e0;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
-  padding: 20px;
-  margin-bottom: 20px;
-  width: 320px;
-  text-align: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  font-family: 'Segoe UI', sans-serif;
-  
-}
-
-.event {
-  background-color: #ffffff;
-  border: 1px solid #e0e0e0;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
-  padding: 20px;
-  margin-bottom: 20px;
-  width: 320px;
-  text-align: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  font-family: 'Segoe UI', sans-serif;
-}
-
-.event:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-}
-
-.event h3 {
-  margin: 0 0 0.5rem;
-  font-size: 1.25rem;
-  color: #1f2937;
-}
-
-.event p {
-  margin: 0;
-  color: #4b5563;
-  font-size: 1rem;
-  line-height: 1.5;
 } */
+
 </style>
 
 
