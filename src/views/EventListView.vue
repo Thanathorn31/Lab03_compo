@@ -9,7 +9,7 @@ import EventService from '@/services/EventService';
 const events = ref<Event | null>(null)
 const totalEvents =ref(0)
 const hasNextPage = computed(() => {
-  const totalPages = Math.ceil(totalEvents.value / 2);
+  const totalPages = Math.ceil(totalEvents.value / pageSize.value);
   return totalPages > page.value;
 });
 
@@ -204,7 +204,7 @@ watchEffect(() => {
     <div class="pagination">
       <router-link
         id="page-prev"
-        :to="{ name: 'event-list-view', query: { page: page - 1 } }"
+        :to="{ name: 'event-list-view', query: { page: page - 1, pageSize: pageSize } }"
         rel="prev"
         v-if="page != 1"
         class="pagination-btn prev-btn">
@@ -217,7 +217,7 @@ watchEffect(() => {
 
       <router-link
         id="page-next"
-        :to="{ name: 'event-list-view', query: { page: page + 1 } }"
+        :to="{ name: 'event-list-view', query: { page: page + 1, pageSize: pageSize } }"
         rel="next"
         v-if="hasNextPage"
         class="pagination-btn next-btn">
