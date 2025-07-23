@@ -6,7 +6,9 @@ import {type  Event } from '@/types';
 import { ref, onMounted ,computed,watchEffect} from 'vue';
 import EventService from '@/services/EventService';
 
-const events = ref<Event | null>(null)
+
+const events = ref<Event[] | null>(null)
+
 const totalEvents =ref(0)
 const hasNextPage = computed(() => {
   const totalPages = Math.ceil(totalEvents.value / pageSize.value);
@@ -55,151 +57,15 @@ watchEffect(() => {
   <h1>Events For Good</h1>
   
   <div class="events">
-    <EventCard v-for="event in events" :key="event.id" :event="event" />
+    <EventCard
+  v-for="event in events"
+  :key="event.id"
+  :event="event" 
+/>
     <!-- <EventCategory v-for="event in events" :key="event.id" :event="event" /> -->
   </div>
     
-    <!-- <div class="pagination">
-        <router-link
-          id="page-prev"
-          :to="{ name: 'event-list-view', query: { page: page - 1 } }"
-          rel="prev"
-          v-if="page != 1"> &#60; Prev Page
-        </router-link>
-
-        <router-link
-          id="page-next"
-          :to="{ name: 'event-list-view', query: { page: page + 1 } }"
-          rel="next"
-          v-if="hasNextPage">Next Page &#62;
-        </router-link>
-      </div>
-
-      <div class="page-size-links">
-      <router-link
-        v-for="size in pageSizeOption"
-        :key="size"
-        :to="{ name: 'event-list-view', query: { page: 1, pageSize: size } }"
-        :class="{ active: pageSize === size }"
-        ><button>{{ size }} per page</button>
-      </router-link>
-    </div>
-
-    
-  </template>
-
-
-
-
-    <style scoped>
-
-  /* .evens{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  } */
-
-  /* .pagination {
-    display: flex;
-    width: 290px;
-  }
-  .pagination a {
-    flex: 1;
-    text-decoration: none;
-    color: #2c3e50;
-  }
-
-  #page-prev {
-    text-align: left;
-  }
-
-  #page-next {
-    text-align: right;
-  } */
-
-  .pagination {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    max-width: 400px;
-    margin: 2rem auto;
-    gap: 1rem;
-  }
-
-  .pagination-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 10px 16px;
-    background-color: #42b983;
-    color: white;
-    text-decoration: none;
-    border-radius: 6px;
-    font-weight: 500;
-    font-size: 14px;
-    transition: background-color 0.2s ease;
-  }
-
-  .pagination-btn:hover {
-    background-color: #36a374;
-  }
-
-  .btn-icon {
-    font-size: 16px;
-  }
-
-  .btn-text {
-    font-family: inherit;
-  }
-
-  /* Responsive design */
-  @media (max-width: 480px) {
-    .pagination {
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-  }
-
-  .page-size-links {
-    display: flex;
-    justify-content: center;
-    gap: 0.5rem;
-    margin-top: 1rem;
-    flex-wrap: wrap;
-  }
-
-  .page-size-links router-link {
-    text-decoration: none;
-  }
-
-  .page-size-links button {
-    padding: 8px 16px;
-    border: 2px solid #42b983;
-    background-color: white;
-    color: #42b983;
-    font-weight: bold;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-
-  .page-size-links button:hover {
-    background-color: #42b983;
-    color: white;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(66, 185, 131, 0.3);
-  }
-
-  .page-size-links .active button {
-    background-color: #42b983;
-    color: white;
-    box-shadow: 0 0 10px rgba(66, 185, 131, 0.4);
-  }
-
-</style> -->
-
-
+  
   <div class="pagination-container">
     <div class="pagination">
       <router-link
